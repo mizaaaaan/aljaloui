@@ -578,6 +578,18 @@ footer{ background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.08); }
 }
 .footer-col ul li a:hover{ color:var(--red); padding-left:4px; }
 
+@media (max-width:599px){
+  .footer-grid{ text-align:center; }
+  .footer-brand-col{ max-width:100%; margin:0 auto; text-align:center; }
+  .footer-brand{ justify-content:center; }
+  .footer-desc{ text-align:center; }
+  .footer-social{ justify-content:center; }
+  .footer-col{ text-align:center; }
+  .footer-col ul{ align-items:center; }
+  .footer-contact-col .contact-item{ justify-content:center; }
+  .footer-bottom-inner{ justify-content:center; text-align:center; }
+}
+
 .footer-contact-col .contact-item{
   display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;
   font-size:13.5px; color:rgba(255,255,255,0.5);
