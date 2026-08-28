@@ -204,6 +204,25 @@
     fareRef.textContent = '#AJ-' + (1000 + Math.floor(Math.random() * 9000));
   }
 
+  /* pre-fill defaults */
+  (function () {
+    if (pickupInput && !selectedPickup) {
+      var defPickup = LOCATIONS.filter(function (l) { return l.name === 'Salwa Road Wholesale Market'; })[0];
+      if (defPickup) {
+        selectedPickup = defPickup;
+        if (pickupAreaTag) { pickupAreaTag.textContent = defPickup.area; pickupAreaTag.classList.add('visible'); }
+      }
+    }
+    if (dropoffInput && !selectedDropoff) {
+      var defDrop = LOCATIONS.filter(function (l) { return l.name === 'West Bay'; })[0];
+      if (defDrop) {
+        selectedDropoff = defDrop;
+        if (dropoffAreaTag) { dropoffAreaTag.textContent = defDrop.area; dropoffAreaTag.classList.add('visible'); }
+      }
+    }
+    recalcFare();
+  })();
+
   /* ====== LANGUAGE TOGGLE ====== */
   window._lang = 'en';
 

@@ -60,35 +60,31 @@
           <span class="ref" id="fareRef">#AJ-1042</span>
         </div>
 
-        <!-- PICKUP -->
-        <div class="loc-picker">
-          <label class="fare-label" data-en="Pickup Location" data-ar="موقع الاستلام">Pickup Location</label>
-          <div class="loc-input-wrap">
-            <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-10-10h4m12 0h4"/></svg>
-            <input type="text" id="pickupInput" class="loc-input" placeholder="Search pickup location…" autocomplete="off" />
-            <span class="loc-area-tag" id="pickupArea"></span>
+        <!-- PICKUP + DROPOFF -->
+        <div class="loc-pair">
+          <div class="loc-picker">
+            <label class="fare-label" data-en="Pickup" data-ar="الاستلام">Pickup</label>
+            <div class="loc-input-wrap">
+              <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-10-10h4m12 0h4"/></svg>
+              <input type="text" id="pickupInput" class="loc-input" placeholder="Pickup location" autocomplete="off" value="Salwa Road Wholesale Market" />
+              <span class="loc-area-tag" id="pickupArea"></span>
+            </div>
+            <ul class="loc-list" id="pickupList"></ul>
           </div>
-          <ul class="loc-list" id="pickupList"></ul>
-        </div>
 
-        <!-- ROUTE LINE -->
-        <div class="fare-route-visual">
-          <div class="fare-route-line">
-            <div class="fare-dot-filled"></div>
-            <div class="fare-dash"></div>
-            <div class="fare-dot-hollow"></div>
+          <div class="loc-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9aa0ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
           </div>
-        </div>
 
-        <!-- DROPOFF -->
-        <div class="loc-picker">
-          <label class="fare-label" data-en="Drop-off Location" data-ar="موقع التوصيل">Drop-off Location</label>
-          <div class="loc-input-wrap">
-            <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <input type="text" id="dropoffInput" class="loc-input" placeholder="Search drop-off location…" autocomplete="off" />
-            <span class="loc-area-tag" id="dropoffArea"></span>
+          <div class="loc-picker">
+            <label class="fare-label" data-en="Drop-off" data-ar="التوصيل">Drop-off</label>
+            <div class="loc-input-wrap">
+              <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <input type="text" id="dropoffInput" class="loc-input" placeholder="Drop-off location" autocomplete="off" value="West Bay" />
+              <span class="loc-area-tag" id="dropoffArea"></span>
+            </div>
+            <ul class="loc-list" id="dropoffList"></ul>
           </div>
-          <ul class="loc-list" id="dropoffList"></ul>
         </div>
 
         <div class="fare-divider"></div>
