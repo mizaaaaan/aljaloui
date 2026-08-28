@@ -31,7 +31,7 @@ ul{ list-style:none; }
 [dir="rtl"] .info-row,
 [dir="rtl"] .form-row,
 [dir="rtl"] .loc-input-wrap{ direction:rtl; text-align:right; }
-[dir="rtl"] .loc-pair{ flex-direction:row-reverse; }
+[dir="rtl"] .loc-pair{ flex-direction:column; }
 [dir="rtl"] .loc-list{ text-align:right; }
 [dir="rtl"] .loc-input-wrap{ flex-direction:row-reverse; }
 [dir="rtl"] .loc-icon{ margin-left:8px; margin-right:0; }
@@ -347,20 +347,21 @@ nav a:hover{ color:var(--white); }
 /* ====== LOCATION PICKER ====== */
 .loc-pair{
   display:flex;
-  align-items:flex-end;
-  gap:8px;
+  flex-direction:column;
+  gap:6px;
 }
 .loc-pair .loc-picker{
-  flex:1;
   position:relative;
-  min-width:0;
 }
 .loc-arrow{
-  flex-shrink:0;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding-bottom:10px;
+  height:0;
+  overflow:visible;
+  position:relative;
+  z-index:2;
+  margin:-3px 0;
 }
 .loc-picker .fare-label{
   display:block;
