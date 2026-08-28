@@ -204,72 +204,6 @@
     fareRef.textContent = '#AJ-' + (1000 + Math.floor(Math.random() * 9000));
   }
 
-  /* ====== ORDER TRACKING ====== */
-  var trackingSteps = [
-    { key: 'placed',    labelEn: 'Order Placed',      labelAr: 'تم تقديم الطلب',       icon: '📋' },
-    { key: 'assigned',  labelEn: 'Rider Assigned',     labelAr: 'تم تعيين السائق',      icon: '👤' },
-    { key: 'picked',    labelEn: 'Picked Up',          labelAr: 'تم الاستلام',          icon: '📦' },
-    { key: 'transit',   labelEn: 'On the Way',         labelAr: 'في الطريق',           icon: '🛵' },
-    { key: 'delivered', labelEn: 'Delivered',          labelAr: 'تم التوصيل',           icon: '✅' }
-  ];
-
-  var currentStep = -1;
-  var trackingTimer = null;
-
-  function renderTracking() {
-    var container = document.getElementById('trackingSteps');
-    var riderInfo = document.getElementById('riderInfo');
-    var trackingEta = document.getElementById('trackingEta');
-    if (!container) return;
-
-    container.innerHTML = trackingSteps.map(function (step, i) {
-      var cls = 't-step';
-      if (i < currentStep) cls += ' done';
-      else if (i === currentStep) cls += ' active';
-      return '<div class="' + cls + '">' +
-               '<div class="t-icon">' + step.icon + '</div>' +
-               '<div class="t-info">' +
-                 '<span class="t-label" data-en="' + step.labelEn + '" data-ar="' + step.labelAr + '">' + (window._lang === 'ar' ? step.labelAr : step.labelEn) + '</span>' +
-                 '<span class="t-time">' + (i <= currentStep ? getRandomTime() : '—') + '</span>' +
-               '</div>' +
-             '</div>';
-    }).join('');
-
-    if (riderInfo) {
-      riderInfo.style.display = currentStep >= 1 ? 'flex' : 'none';
-    }
-    if (trackingEta) {
-      var remaining = trackingSteps.length - 1 - currentStep;
-      var etaMin = remaining * 8;
-      trackingEta.textContent = currentStep >= trackingSteps.length - 1 ? '0' : etaMin;
-    }
-  }
-
-  function getRandomTime() {
-    var h = 8 + Math.floor(Math.random() * 10);
-    var m = Math.floor(Math.random() * 60);
-    return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-  }
-
-  function startTracking() {
-    currentStep = 0;
-    renderTracking();
-    if (trackingTimer) clearInterval(trackingTimer);
-    trackingTimer = setInterval(function () {
-      if (currentStep < trackingSteps.length - 1) {
-        currentStep++;
-        renderTracking();
-      } else {
-        clearInterval(trackingTimer);
-      }
-    }, 2500);
-  }
-
-  var trackBtn = document.getElementById('trackBtn');
-  if (trackBtn) {
-    trackBtn.addEventListener('click', startTracking);
-  }
-
   /* ====== LANGUAGE TOGGLE ====== */
   window._lang = 'en';
 
@@ -298,8 +232,5 @@
       }
     });
   });
-
-  /* expose startTracking for manual trigger */
-  window.startTracking = startTracking;
 
 })();
