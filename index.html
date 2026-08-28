@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Aljaloui Delivery — Safe, Fast &amp; Trusted Delivery in Doha, Qatar</title>
-<meta name="description" content="Aljaloui — freight, fleet, and last-mile delivery routed for speed. Truck, car and bike delivery across Doha, Qatar. Request a delivery or apply as a rider." />
+<title>Aljaloui Delivery — Safe, Fast &amp; Trusted Delivery in Qatar</title>
+<meta name="description" content="Aljaloui — freight, fleet, and last-mile delivery routed for speed. Truck, car and bike delivery across Qatar. Request a delivery or apply as a rider." />
 <meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<!-- ====== HERO — original uploaded theme, unchanged ====== -->
+<!-- ====== HERO ====== -->
 <div class="hero" id="top">
   <video class="bg-video" autoplay loop muted playsinline>
     <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4" type="video/mp4">
@@ -31,62 +31,87 @@
       </div>
 
       <nav>
-        <a href="#top">Home</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#top" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="#services" data-en="Services" data-ar="خدماتنا">Services</a>
+        <a href="#tracking" data-en="Track" data-ar="تتبع">Track</a>
+        <a href="#contact" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
       </nav>
 
-      <a href="#contact" class="btn-red clip-btn header-cta">Contact Us</a>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">AR</button>
+        <a href="#contact" class="btn-red clip-btn header-cta" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+      </div>
     </header>
 
     <div class="hero-copy">
-      <h1>Swift and Simple Transport</h1>
-      <p>Freight, fleet, and last-mile delivery routed by Aljaloui — built to move fast without the friction.</p>
+      <h1 data-en="Swift and Simple Transport" data-ar="نقل سريع وبسيط">Swift and Simple Transport</h1>
+      <p data-en="Freight, fleet, and last-mile delivery routed by Aljaloui — built to move fast without the friction." data-ar="شحن، أسطول، وتوصيل آخر ميل بواسطة الجلولي — صُنع للسرعة بدون تعقيد.">Freight, fleet, and last-mile delivery routed by Aljaloui — built to move fast without the friction.</p>
       <a href="#contact" class="btn-red clip-btn get-started">
-        Get Started
+        <span data-en="Get Started" data-ar="ابدأ الآن">Get Started</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
       </a>
     </div>
 
+    <!-- ====== FARE ESTIMATOR CARD (redesigned) ====== -->
     <div class="fare-card" id="fareCard">
       <div class="fare-dots"></div>
       <div class="fare-body">
         <div class="fare-top">
-          <span class="tag">Estimate Your Delivery</span>
+          <span class="tag" data-en="Estimate Your Delivery" data-ar="قدّر توصيلتك">Estimate Your Delivery</span>
           <span class="ref" id="fareRef">#AJ-1042</span>
         </div>
 
-        <div class="fare-route">
+        <!-- PICKUP -->
+        <div class="loc-picker">
+          <label class="fare-label" data-en="Pickup Location" data-ar="موقع الاستلام">Pickup Location</label>
+          <div class="loc-input-wrap">
+            <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-10-10h4m12 0h4"/></svg>
+            <input type="text" id="pickupInput" class="loc-input" placeholder="Search pickup location…" autocomplete="off" />
+            <span class="loc-area-tag" id="pickupArea"></span>
+          </div>
+          <ul class="loc-list" id="pickupList"></ul>
+        </div>
+
+        <!-- ROUTE LINE -->
+        <div class="fare-route-visual">
           <div class="fare-route-line">
             <div class="fare-dot-filled"></div>
             <div class="fare-dash"></div>
             <div class="fare-dot-hollow"></div>
           </div>
-          <div class="fare-route-text">
-            <p class="fare-label">Pickup</p>
-            <p class="fare-value">Wholesale Market, Salwa Rd</p>
+        </div>
 
-            <p class="fare-label">Drop-off Distance</p>
-            <p class="fare-value" id="fareDistanceLabel">12 km — Anywhere in Doha</p>
-            <div class="fare-slider-row">
-              <label for="fareDistance" class="sr-only">Distance in kilometers</label>
-              <input type="range" id="fareDistance" min="1" max="50" value="12" step="1" />
-            </div>
+        <!-- DROPOFF -->
+        <div class="loc-picker">
+          <label class="fare-label" data-en="Drop-off Location" data-ar="موقع التوصيل">Drop-off Location</label>
+          <div class="loc-input-wrap">
+            <svg class="loc-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <input type="text" id="dropoffInput" class="loc-input" placeholder="Search drop-off location…" autocomplete="off" />
+            <span class="loc-area-tag" id="dropoffArea"></span>
           </div>
+          <ul class="loc-list" id="dropoffList"></ul>
         </div>
 
         <div class="fare-divider"></div>
 
-        <div class="fare-status-row">
-          <span class="fare-pill">Estimate Ready</span>
-          <span class="fare-eta">ETA <span id="fareEta">32</span> MIN</span>
+        <!-- RESULT (hidden until both selected) -->
+        <div class="fare-result" id="fareResult">
+          <div class="fare-route">
+            <p class="fare-label" data-en="Distance" data-ar="المسافة">Distance</p>
+            <p class="fare-value" id="fareDistanceLabel">Select both locations</p>
+          </div>
+
+          <div class="fare-status-row">
+            <span class="fare-pill" data-en="Estimate Ready" data-ar="التقدير جاهز">Estimate Ready</span>
+            <span class="fare-eta">ETA <span id="fareEta">—</span> MIN</span>
+          </div>
+
+          <div class="fare-price">QR <span id="farePrice">—</span> <span data-en="estimated" data-ar="تقديري">estimated</span></div>
+
+          <div class="fare-barcode"></div>
+
+          <a href="#contact" class="btn-red clip-btn" data-en="Request This Delivery" data-ar="اطلب هذه التوصيلة">Request This Delivery</a>
         </div>
-
-        <div class="fare-price">QR <span id="farePrice">29</span> <span>estimated</span></div>
-
-        <div class="fare-barcode"></div>
-
-        <a href="#contact" class="btn-red clip-btn">Request This Delivery</a>
       </div>
     </div>
 
@@ -94,11 +119,11 @@
 
     <div class="glass-card">
       <div class="glass-inner">
-        <p class="eyebrow">Need a quote?</p>
-        <h3>Book a Free Consultation</h3>
+        <p class="eyebrow" data-en="Need a quote?" data-ar="تحتاج عرض سعر؟">Need a quote?</p>
+        <h3 data-en="Book a Free Consultation" data-ar="احجز استشارة مجانية">Book a Free Consultation</h3>
         <a href="#contact" class="btn-white clip-btn btn-block">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Book a Call
+          <span data-en="Book a Call" data-ar="احجز مكالمة">Book a Call</span>
         </a>
       </div>
     </div>
@@ -106,35 +131,118 @@
 </div>
 
 <main>
+
+<!-- ====== LIVE ORDER TRACKING ====== -->
+<section id="tracking" class="tracking-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag" data-en="Live Tracking" data-ar="تتبع مباشر">Live Tracking</span>
+      <h2 data-en="Track Your Delivery" data-ar="تتبع توصيلتك">Track Your Delivery</h2>
+      <p data-en="Watch your delivery move in real time. Tap below to simulate a live tracking experience." data-ar="شاهد توصيلتك تتحرك في الوقت الفعلي. اضغط أدناه لتجربة التتبع المباشر.">Watch your delivery move in real time. Tap below to simulate a live tracking experience.</p>
+    </div>
+
+    <div class="tracking-card">
+      <div class="tracking-card-header">
+        <div>
+          <span class="tracking-ref" data-en="Order" data-ar="الطلب">Order</span>
+          <span class="tracking-ref-num">#AJ-2847</span>
+        </div>
+        <span class="tracking-status" id="trackingStatus" data-en="Tap to start" data-ar="اضغط للبدء">Tap to start</span>
+      </div>
+
+      <div class="tracking-body">
+        <div class="tracking-steps" id="trackingSteps">
+          <div class="t-step">
+            <div class="t-icon">📋</div>
+            <div class="t-info">
+              <span class="t-label" data-en="Order Placed" data-ar="تم تقديم الطلب">Order Placed</span>
+              <span class="t-time">—</span>
+            </div>
+          </div>
+          <div class="t-step">
+            <div class="t-icon">👤</div>
+            <div class="t-info">
+              <span class="t-label" data-en="Rider Assigned" data-ar="تم تعيين السائق">Rider Assigned</span>
+              <span class="t-time">—</span>
+            </div>
+          </div>
+          <div class="t-step">
+            <div class="t-icon">📦</div>
+            <div class="t-info">
+              <span class="t-label" data-en="Picked Up" data-ar="تم الاستلام">Picked Up</span>
+              <span class="t-time">—</span>
+            </div>
+          </div>
+          <div class="t-step">
+            <div class="t-icon">🛵</div>
+            <div class="t-info">
+              <span class="t-label" data-en="On the Way" data-ar="في الطريق">On the Way</span>
+              <span class="t-time">—</span>
+            </div>
+          </div>
+          <div class="t-step">
+            <div class="t-icon">✅</div>
+            <div class="t-info">
+              <span class="t-label" data-en="Delivered" data-ar="تم التوصيل">Delivered</span>
+              <span class="t-time">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rider info -->
+        <div class="rider-info" id="riderInfo" style="display:none">
+          <div class="rider-avatar">A</div>
+          <div class="rider-details">
+            <span class="rider-name">Ahmed M.</span>
+            <span class="rider-role" data-en="Delivery Rider" data-ar="سائق التوصيل">Delivery Rider</span>
+          </div>
+          <div class="rider-eta-wrap">
+            <span class="rider-eta-label" data-en="ETA" data-ar="الوقت المتوقع">ETA</span>
+            <span class="rider-eta-val" id="trackingEta">—</span>
+            <span class="rider-eta-unit" data-en="min" data-ar="دقيقة">min</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracking-card-footer">
+        <button class="btn-red clip-btn track-btn" id="trackBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span data-en="Start Live Tracking" data-ar="ابدأ التتبع المباشر">Start Live Tracking</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ====== SERVICES ====== -->
 <section id="services" class="services">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">What We Do</span>
-      <h2>Delivery For Every Need</h2>
-      <p>Whatever needs moving — a parcel, a meal, or a wholesale order — Aljaloui has a vehicle and a rider ready across Doha.</p>
+      <span class="section-tag" data-en="What We Do" data-ar="ماذا نقدم">What We Do</span>
+      <h2 data-en="Delivery For Every Need" data-ar="توصيل لكل احتياج">Delivery For Every Need</h2>
+      <p data-en="Whatever needs moving — a parcel, a meal, or a wholesale order — Aljaloui has a vehicle and a rider ready across Qatar." data-ar="مهما كان ما يحتاج نقل — طرد، وجبة، أو طلب بالجملة — الجلولي لديه مركبة وسائق جاهز في جميع أنحاء قطر.">Whatever needs moving — a parcel, a meal, or a wholesale order — Aljaloui has a vehicle and a rider ready across Qatar.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <h3>Truck Delivery</h3>
-        <p>Wholesale and bulk cargo moved reliably across Doha, on time and handled with care.</p>
+        <h3 data-en="Truck Delivery" data-ar="توصيل شاحنات">Truck Delivery</h3>
+        <p data-en="Wholesale and bulk cargo moved reliably across Qatar, on time and handled with care." data-ar="شحن بالجملة والكميات ينتقل بموثوقية عبر قطر، في الوقت المناسب ومعالجة بعناية.">Wholesale and bulk cargo moved reliably across Qatar, on time and handled with care.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 0 1 1 1v3l3.5 5"/><path d="M9 17.5H5.5l2-6.5h4L15 17.5H9z"/><path d="M2 17.5H1"/></svg>
         </div>
-        <h3>Bike Delivery</h3>
-        <p>Fast, safe last-mile delivery for parcels and food — our largest and quickest fleet.</p>
+        <h3 data-en="Bike Delivery" data-ar="توصيل دراجات">Bike Delivery</h3>
+        <p data-en="Fast, safe last-mile delivery for parcels and food — our largest and quickest fleet." data-ar="توصيل سريع وآمن للطرود والطعام — أكبر وأسرع أسطول لدينا.">Fast, safe last-mile delivery for parcels and food — our largest and quickest fleet.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM3 17V9l2-5h10l4 5v8"/></svg>
         </div>
-        <h3>Car Delivery</h3>
-        <p>Flexible car delivery for mid-size shipments, document runs, and errands.</p>
+        <h3 data-en="Car Delivery" data-ar="توصيل سيارات">Car Delivery</h3>
+        <p data-en="Flexible car delivery for mid-size shipments, document runs, and errands." data-ar="توصيل مرن بالسيارات للشحنات المتوسطة ونقل المستندات والمهام.">Flexible car delivery for mid-size shipments, document runs, and errands.</p>
       </div>
     </div>
   </div>
@@ -144,16 +252,16 @@
 <section id="hiring" class="hiring">
   <div class="wrap hiring-inner">
     <div class="hiring-copy">
-      <span class="section-tag">We're Hiring</span>
-      <h2>Bike Drivers Wanted</h2>
-      <p>Safe, fast, and trusted delivery is our commitment — and it starts with our riders. Join a growing delivery team in Doha.</p>
+      <span class="section-tag" data-en="We're Hiring" data-ar="نحن نوظف">We're Hiring</span>
+      <h2 data-en="Bike Drivers Wanted" data-ar="مطلوب سائقو دراجات">Bike Drivers Wanted</h2>
+      <p data-en="Safe, fast, and trusted delivery is our commitment — and it starts with our riders. Join a growing delivery team in Qatar." data-ar="التوصيل الآمن والسريع والموثوق هو التزامنا — ويبدأ بسائقينا. انضم إلى فريق توصيل متنامي في قطر.">Safe, fast, and trusted delivery is our commitment — and it starts with our riders. Join a growing delivery team in Qatar.</p>
       <ul class="hiring-list">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Competitive daily &amp; monthly pay</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Flexible shifts</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Steady, growing delivery network</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Competitive daily &amp; monthly pay" data-ar="أجر يومي وشهري تنافسي">Competitive daily &amp; monthly pay</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Flexible shifts" data-ar="ورديات مرنة">Flexible shifts</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-en="Steady, growing delivery network" data-ar="شبكة توصيل متنامية ومستقرة">Steady, growing delivery network</span></li>
       </ul>
     </div>
-    <a href="#contact" class="btn-black clip-btn">Apply Now</a>
+    <a href="#contact" class="btn-black clip-btn" data-en="Apply Now" data-ar="قدّم الآن">Apply Now</a>
   </div>
 </section>
 
@@ -161,19 +269,19 @@
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-tag">Get In Touch</span>
-      <h2>Request A Delivery Or Apply As A Rider</h2>
-      <p>Fill out the form and our team will contact you shortly.</p>
+      <span class="section-tag" data-en="Get In Touch" data-ar="تواصل معنا">Get In Touch</span>
+      <h2 data-en="Request A Delivery Or Apply As A Rider" data-ar="اطلب توصيلة أو قدّم كسائق">Request A Delivery Or Apply As A Rider</h2>
+      <p data-en="Fill out the form and our team will contact you shortly." data-ar="املأ النموذج وسيتواصل معك فريقنا قريباً.">Fill out the form and our team will contact you shortly.</p>
     </div>
 
     <div class="contact-grid">
       <div class="info-card">
-        <h3>Contact Details</h3>
+        <h3 data-en="Contact Details" data-ar="بيانات الاتصال">Contact Details</h3>
 
         <div class="info-row">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <div>
-            <p class="label">Phone</p>
+            <p class="label" data-en="Phone" data-ar="الهاتف">Phone</p>
             <p><a href="tel:+97472058840">+974 7205 8840</a><br/><a href="tel:+97455110506">+974 5511 0506</a><br/><a href="tel:+97430916308">+974 3091 6308</a></p>
           </div>
         </div>
@@ -181,7 +289,7 @@
         <div class="info-row">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
           <div>
-            <p class="label">Email</p>
+            <p class="label" data-en="Email" data-ar="البريد الإلكتروني">Email</p>
             <p><a href="mailto:aljaloui@gmail.com">aljaloui@gmail.com</a></p>
           </div>
         </div>
@@ -189,8 +297,8 @@
         <div class="info-row">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <div>
-            <p class="label">Address</p>
-            <p>Wholesale Market, Salwa Road,<br/>Doha, Qatar</p>
+            <p class="label" data-en="Address" data-ar="العنوان">Address</p>
+            <p data-en="Wholesale Market, Salwa Road, Doha, Qatar" data-ar="سوق الجملة، طريق السلعة، الدوحة، قطر">Wholesale Market, Salwa Road,<br/>Doha, Qatar</p>
           </div>
         </div>
 
@@ -202,49 +310,48 @@
       </div>
 
       <div class="form-card">
-        <h3>Send Us Your Inquiry</h3>
-        <p>Whether you need a delivery or want to join as a rider, tell us a bit about it.</p>
+        <h3 data-en="Send Us Your Inquiry" data-ar="أرسل استفسارك">Send Us Your Inquiry</h3>
+        <p data-en="Whether you need a delivery or want to join as a rider, tell us a bit about it." data-ar="سواء كنت تحتاج توصيلة أو تريد الانضمام كسائق، أخبرنا قليلاً عن ذلك.">Whether you need a delivery or want to join as a rider, tell us a bit about it.</p>
 
-        <!-- TODO: Replace 'your-form-id' with your actual Formspree form ID -->
         <form action="https://formspree.io/f/your-form-id" method="POST">
           <div class="form-row two">
             <div>
-              <label for="name">Full Name</label>
+              <label for="name" data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
               <input type="text" id="name" name="name" placeholder="Your full name" required />
             </div>
             <div>
-              <label for="phone">Phone Number</label>
+              <label for="phone" data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="+974 ..." required />
             </div>
           </div>
 
           <div class="form-row">
             <div>
-              <label for="email">Email Address</label>
+              <label for="email" data-en="Email Address" data-ar="البريد الإلكتروني">Email Address</label>
               <input type="email" id="email" name="email" placeholder="you@example.com" />
             </div>
           </div>
 
           <div class="form-row">
             <div>
-              <label for="reason">I'm Interested In</label>
+              <label for="reason" data-en="I'm Interested In" data-ar="أنا مهتم بـ">I'm Interested In</label>
               <select id="reason" name="reason">
-                <option value="rider">Becoming a Rider / Bike Driver</option>
-                <option value="delivery">Requesting a Delivery</option>
-                <option value="general">General Inquiry</option>
+                <option value="rider" data-en="Becoming a Rider / Bike Driver" data-ar="الانضمام كسائق / سائق دراجة">Becoming a Rider / Bike Driver</option>
+                <option value="delivery" data-en="Requesting a Delivery" data-ar="طلب توصيلة">Requesting a Delivery</option>
+                <option value="general" data-en="General Inquiry" data-ar="استفسار عام">General Inquiry</option>
               </select>
             </div>
           </div>
 
           <div class="form-row">
             <div>
-              <label for="message">Message</label>
+              <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
               <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
             </div>
           </div>
 
-          <button type="submit" class="btn-red clip-btn submit-btn">Send Inquiry</button>
-          <p class="form-note">We usually respond within a few hours.</p>
+          <button type="submit" class="btn-red clip-btn submit-btn" data-en="Send Inquiry" data-ar="إرسال الاستفسار">Send Inquiry</button>
+          <p class="form-note" data-en="We usually respond within a few hours." data-ar="نرد عادةً خلال ساعات قليلة.">We usually respond within a few hours.</p>
         </form>
       </div>
     </div>
@@ -256,8 +363,6 @@
 <footer>
   <div class="wrap footer-main">
     <div class="footer-grid">
-
-      <!-- Column 1: Brand -->
       <div class="footer-brand-col">
         <div class="footer-brand">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,48 +371,38 @@
           </svg>
           <span>Aljaloui</span>
         </div>
-        <p class="footer-desc">Safe, fast, and trusted delivery across Doha. Freight, fleet, and last-mile solutions routed for speed.</p>
+        <p class="footer-desc" data-en="Safe, fast, and trusted delivery across Qatar. Freight, fleet, and last-mile solutions routed for speed." data-ar="توصيل آمن وسريع وموثوق عبر قطر. حلول الشحن والأسطول والتوصيل الأخير مصممة للسرعة.">Safe, fast, and trusted delivery across Qatar. Freight, fleet, and last-mile solutions routed for speed.</p>
         <div class="footer-social">
-          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          </a>
-          <a href="https://snapchat.com/" target="_blank" rel="noopener noreferrer" aria-label="Snapchat">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.922-.214.093-.033.186-.06.28-.06.326 0 .596.18.69.475.082.264.048.612-.102.916-.505.95-1.335 1.24-1.863 1.395-.195.06-.375.09-.54.12-.09.015-.18.045-.27.075-.39.135-.75.45-.75.9 0 .255.09.42.18.555.36.525 1.02.69 1.635.795.09.015.18.045.27.06.45.09.78.315.92.555.09.15.135.36.045.555-.195.405-1.005.66-1.71.795-.063.015-.12.03-.195.045l-.09.015c-.135.03-.285.06-.435.09-.57.09-1.215.195-1.41.6-.09.18-.06.42.045.615.195.345.69.525 1.14.645.165.045.33.075.465.12.225.06.42.15.57.3.15.15.21.345.21.525 0 .09-.015.165-.045.24-.21.48-1.11.705-1.92.84-.06.015-.135.03-.21.045-.45.075-.975.15-1.2.465-.135.18-.15.435-.06.645.135.315.57.48 1.05.57.255.045.525.09.72.18.36.15.57.42.63.78.03.15.045.315.015.465-.12.6-.63.9-1.29 1.065-.21.06-.435.09-.66.09-.135 0-.27-.015-.405-.045-.255-.045-.525-.075-.78-.075-.405 0-.78.075-1.14.21-.54.195-1.035.465-1.59.465-.555 0-1.035-.27-1.59-.465-.36-.135-.72-.21-1.14-.21-.255 0-.525.03-.78.075-.135.03-.27.045-.405.045-.225 0-.45-.03-.66-.09-.66-.165-1.17-.465-1.29-1.065-.03-.15-.015-.315.015-.465.06-.36.27-.63.63-.78.195-.09.465-.135.72-.18.48-.09.915-.255 1.05-.57.09-.21.075-.465-.06-.645-.225-.315-.75-.39-1.2-.465-.075-.015-.15-.03-.21-.045-.81-.135-1.71-.36-1.92-.84-.03-.075-.045-.15-.045-.24 0-.18.06-.375.21-.525.15-.15.345-.24.57-.3.135-.045.3-.075.465-.12.45-.12.95-.3 1.14-.645.09-.195.075-.435-.045-.615-.195-.405-.84-.51-1.41-.6l-.09-.015c-.075-.015-.135-.03-.195-.045-.705-.135-1.515-.39-1.71-.795-.09-.195-.045-.405.045-.555.14-.24.47-.465.92-.555.09-.03.18-.06.27-.075.165-.03.345-.06.54-.12.525-.15 1.355-.44 1.86-1.395.15-.305.184-.653.102-.916-.094-.296-.364-.475-.69-.475-.094 0-.187.027-.28.06-.263.094-.622.198-.922.214-.198 0-.326-.045-.401-.09-.008-.165-.018-.33-.03-.51l-.003-.06c-.104-1.628-.23-3.654.3-4.847C7.859 1.069 11.216.793 12.206.793z"/></svg>
-          </a>
+          <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://snapchat.com/" target="_blank" rel="noopener noreferrer" aria-label="Snapchat"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.922-.214.093-.033.186-.06.28-.06.326 0 .596.18.69.475.082.264.048.612-.102.916-.505.95-1.335 1.24-1.863 1.395-.195.06-.375.09-.54.12-.09.015-.18.045-.27.075-.39.135-.75.45-.75.9 0 .255.09.42.18.555.36.525 1.02.69 1.635.795.09.015.18.045.27.06.45.09.78.315.92.555.09.15.135.36.045.555-.195.405-1.005.66-1.71.795-.063.015-.12.03-.195.045l-.09.015c-.135.03-.285.06-.435.09-.57.09-1.215.195-1.41.6-.09.18-.06.42.045.615.195.345.69.525 1.14.645.165.045.33.075.465.12.225.06.42.15.57.3.15.15.21.345.21.525 0 .09-.015.165-.045.24-.21.48-1.11.705-1.92.84-.06.015-.135.03-.21.045-.45.075-.975.15-1.2.465-.135.18-.15.435-.06.645.135.315.57.48 1.05.57.255.045.525.09.72.18.36.15.57.42.63.78.03.15.045.315.015.465-.12.6-.63.9-1.29 1.065-.21.06-.435.09-.66.09-.135 0-.27-.015-.405-.045-.255-.045-.525-.075-.78-.075-.405 0-.78.075-1.14.21-.54.195-1.035.465-1.59.465-.555 0-1.035-.27-1.59-.465-.36-.135-.72-.21-1.14-.21-.255 0-.525.03-.78.075-.135.03-.27.045-.405.045-.225 0-.45-.03-.66-.09-.66-.165-1.17-.465-1.29-1.065-.03-.15-.015-.315.015-.465.06-.36.27-.63.63-.78.195-.09.465-.135.72-.18.48-.09.915-.255 1.05-.57.09-.21.075-.465-.045-.615-.195-.405-.84-.51-1.41-.6l-.09-.015c-.075-.015-.15-.03-.21-.045-.81-.135-1.71-.36-1.92-.84-.09-.195-.045-.405.045-.555.14-.24.47-.465.92-.555.09-.03.18-.06.27-.075.165-.03.345-.06.54-.12.525-.15 1.355-.44 1.86-1.395.15-.305.184-.653.102-.916-.094-.296-.364-.475-.69-.475-.094 0-.187.027-.28.06-.263.094-.622.198-.922.214-.198 0-.326-.045-.401-.09-.008-.165-.018-.33-.03-.51l-.003-.06c-.104-1.628-.23-3.654.3-4.847C7.859 1.069 11.216.793 12.206.793z"/></svg></a>
         </div>
       </div>
 
-      <!-- Column 2: Quick Links -->
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
         <ul>
-          <li><a href="#top">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#hiring">Careers</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#top" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li><a href="#services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+          <li><a href="#tracking" data-en="Track Order" data-ar="تتبع الطلب">Track Order</a></li>
+          <li><a href="#hiring" data-en="Careers" data-ar="الوظائف">Careers</a></li>
+          <li><a href="#contact" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Services -->
       <div class="footer-col">
-        <h4>Services</h4>
+        <h4 data-en="Services" data-ar="خدماتنا">Services</h4>
         <ul>
-          <li><a href="#services">Truck Delivery</a></li>
-          <li><a href="#services">Bike Delivery</a></li>
-          <li><a href="#services">Car Delivery</a></li>
-          <li><a href="#contact">Request a Quote</a></li>
+          <li><a href="#services" data-en="Truck Delivery" data-ar="توصيل شاحنات">Truck Delivery</a></li>
+          <li><a href="#services" data-en="Bike Delivery" data-ar="توصيل دراجات">Bike Delivery</a></li>
+          <li><a href="#services" data-en="Car Delivery" data-ar="توصيل سيارات">Car Delivery</a></li>
+          <li><a href="#contact" data-en="Request a Quote" data-ar="طلب عرض سعر">Request a Quote</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Contact & Hours -->
       <div class="footer-col footer-contact-col">
-        <h4>Contact</h4>
+        <h4 data-en="Contact" data-ar="تواصل معنا">Contact</h4>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <div>
@@ -321,7 +416,7 @@
         </div>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Wholesale Market,<br/>Salwa Road, Doha</span>
+          <span data-en="Wholesale Market, Salwa Road, Doha" data-ar="سوق الجملة، طريق السلعة، الدoha">Wholesale Market,<br/>Salwa Road, Doha</span>
         </div>
       </div>
 
@@ -332,7 +427,7 @@
     <div class="wrap footer-bottom-inner">
       <span>&copy; 2026 Aljaloui Delivery. All rights reserved. &middot; C.R. No. 209696</span>
       <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-        Back to Top
+        <span data-en="Back to Top" data-ar="العودة للأعلى">Back to Top</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
       </button>
     </div>
