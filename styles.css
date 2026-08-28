@@ -361,7 +361,7 @@ nav a:hover{ color:var(--white); }
   overflow:visible;
   position:relative;
   z-index:2;
-  margin:-3px 0;
+  margin:2px 0 -2px 0;
 }
 .loc-picker .fare-label{
   display:block;
