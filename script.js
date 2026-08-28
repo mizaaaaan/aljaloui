@@ -223,23 +223,7 @@
     recalcFare();
   })();
 
-  /* ====== LANGUAGE TOGGLE ====== */
-  window._lang = 'en';
 
-  var langToggle = document.getElementById('langToggle');
-  if (langToggle) {
-    langToggle.addEventListener('click', function () {
-      window._lang = window._lang === 'en' ? 'ar' : 'en';
-      langToggle.textContent = window._lang === 'en' ? 'AR' : 'EN';
-      document.documentElement.setAttribute('lang', window._lang);
-      document.documentElement.setAttribute('dir', window._lang === 'ar' ? 'rtl' : 'ltr');
-
-      document.querySelectorAll('[data-en]').forEach(function (el) {
-        var key = window._lang === 'ar' ? 'ar' : 'en';
-        el.textContent = el.getAttribute('data-' + key);
-      });
-    });
-  }
 
   /* ====== SMOOTH SCROLL FOR NAV ====== */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {

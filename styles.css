@@ -20,29 +20,6 @@ img{ max-width:100%; display:block; }
 ul{ list-style:none; }
 .wrap{ max-width:1160px; margin:0 auto; padding:0 32px; }
 
-/* ====== RTL SUPPORT ====== */
-[dir="rtl"] .content,
-[dir="rtl"] .section-head,
-[dir="rtl"] .hiring-inner,
-[dir="rtl"] .contact-grid,
-[dir="rtl"] .footer-bottom-inner,
-[dir="rtl"] .fare-top,
-[dir="rtl"] .fare-status-row,
-[dir="rtl"] .info-row,
-[dir="rtl"] .form-row,
-[dir="rtl"] .loc-input-wrap{ direction:rtl; text-align:right; }
-[dir="rtl"] .loc-pair{ flex-direction:column; }
-[dir="rtl"] .loc-list{ text-align:right; }
-[dir="rtl"] .loc-input-wrap{ flex-direction:row-reverse; }
-[dir="rtl"] .loc-icon{ margin-left:8px; margin-right:0; }
-[dir="rtl"] .loc-area-tag{ margin-left:8px; margin-right:0; }
-[dir="rtl"] .hero-copy h1{ letter-spacing:0; }
-[dir="rtl"] .section-head h2{ letter-spacing:0; }
-[dir="rtl"] .hiring-copy h2{ letter-spacing:0; }
-[dir="rtl"] .fare-route{ flex-direction:row-reverse; }
-[dir="rtl"] .fare-route-line{ flex-direction:column-reverse; }
-[dir="rtl"] .rider-info{ flex-direction:row-reverse; }
-
 /* ====== HERO ====== */
 .hero{
   position:relative;
@@ -104,23 +81,6 @@ nav a:hover{ color:var(--white); }
   display:flex;
   align-items:center;
   gap:12px;
-}
-
-/* ====== LANGUAGE TOGGLE ====== */
-.lang-toggle{
-  background:rgba(255,255,255,0.12);
-  color:#fff;
-  font-weight:700;
-  font-size:12px;
-  letter-spacing:0.05em;
-  padding:6px 12px;
-  border-radius:999px;
-  cursor:pointer;
-  transition:background .2s, transform .15s;
-}
-.lang-toggle:hover{
-  background:var(--red);
-  transform:scale(1.05);
 }
 
 .clip-btn{
