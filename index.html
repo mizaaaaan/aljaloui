@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aljaloui Delivery — Safe, Fast &amp; Trusted Delivery in Doha, Qatar</title>
 <meta name="description" content="Aljaloui — freight, fleet, and last-mile delivery routed for speed. Truck, car and bike delivery across Doha, Qatar. Request a delivery or apply as a rider." />
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -37,6 +38,7 @@
     min-height:100vh;
     width:100%;
     overflow:hidden;
+    background:#0B0B0C;
   }
   .bg-video{
     position:absolute;
@@ -105,6 +107,10 @@
     gap:8px;
   }
   .btn-red:hover{ transform:scale(1.03); }
+  .btn-red:focus-visible, .btn-white:focus-visible, .btn-black:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:2px;
+  }
   .btn-white{
     background:var(--white);
     color:#000;
@@ -121,6 +127,7 @@
   }
   .btn-white:hover{ transform:scale(1.02); }
   .btn-block{ width:100%; }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
   .header-cta{ display:none; }
   @media (min-width:768px){
@@ -351,6 +358,7 @@
     transition:transform .2s ease;
   }
   .btn-black:hover{ transform:scale(1.03); }
+  .btn-black:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
 
   /* Contact */
   .contact{ background:var(--black); }
@@ -415,9 +423,10 @@
 <body>
 
 <!-- ====== HERO — original uploaded theme, unchanged ====== -->
-<div class="hero">
+<div class="hero" id="top">
   <video class="bg-video" autoplay loop muted playsinline>
     <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4" type="video/mp4">
+    Your browser does not support the video tag.
   </video>
 
   <div class="content">
@@ -469,6 +478,7 @@
             <p class="fare-label">Drop-off Distance</p>
             <p class="fare-value" id="fareDistanceLabel">12 km — Anywhere in Doha</p>
             <div class="fare-slider-row">
+              <label for="fareDistance" class="sr-only">Distance in kilometers</label>
               <input type="range" id="fareDistance" min="1" max="50" value="12" step="1" />
             </div>
           </div>
@@ -489,7 +499,9 @@
       </div>
     </div>
 
-    <div class="spacer"></div>
+    </div>
+  <main>
+  <div class="spacer"></div>
 
     <div class="glass-card">
       <div class="glass-inner">
@@ -603,6 +615,7 @@
         <h3>Send Us Your Inquiry</h3>
         <p>Whether you need a delivery or want to join as a rider, tell us a bit about it.</p>
 
+        <!-- TODO: Replace 'your-form-id' with your actual Formspree form ID -->
         <form action="https://formspree.io/f/your-form-id" method="POST">
           <div class="form-row two">
             <div>
@@ -701,5 +714,6 @@
   })();
 </script>
 
+</main>
 </body>
 </html>
