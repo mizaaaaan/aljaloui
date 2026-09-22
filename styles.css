@@ -4,13 +4,20 @@
   --white:#ffffff;
   --gray-bg:#0B0B0C;
   --text-muted:rgba(255,255,255,0.65);
+
+  /* ====== PAGE BACKGROUND ======
+     Change only these two lines to re-skin the whole site. `--bg` is the base
+     page colour and `--bg-soft` the alternating band used by the hero,
+     services and footer. Both need to stay dark: all body text is white. */
+  --bg:#0A1128;        /* was #000000 */
+  --bg-soft:#111A38;   /* was #0B0B0C */
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 html,body{ height:100%; }
 body{
   font-family:'Rubik', sans-serif;
-  background:var(--black);
+  background:var(--bg);
   color:var(--white);
   overflow-x:hidden;
 }
@@ -26,7 +33,7 @@ ul{ list-style:none; }
   min-height:100vh;
   width:100%;
   overflow:hidden;
-  background:#0B0B0C;
+  background:var(--bg-soft);
 }
 .bg-video{
   position:absolute;
@@ -449,7 +456,7 @@ section{ padding:96px 0; }
 .section-head p{ margin-top:14px; color:var(--text-muted); font-size:15.5px; line-height:1.7; }
 
 /* Services */
-.services{ background:var(--gray-bg); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+.services{ background:var(--bg-soft); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
 .services-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
 @media (min-width:800px){ .services-grid{ grid-template-columns:repeat(3,1fr); } }
 .service-card{
@@ -492,7 +499,7 @@ section{ padding:96px 0; }
 .btn-black:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
 
 /* Contact */
-.contact{ background:var(--black); }
+.contact{ background:var(--bg); }
 .contact-grid{ display:grid; grid-template-columns:1fr; gap:26px; }
 @media (min-width:900px){ .contact-grid{ grid-template-columns:0.85fr 1.15fr; align-items:start; } }
 
@@ -542,7 +549,7 @@ textarea{ resize:vertical; min-height:104px; }
 .form-note{ margin-top:14px; font-size:12.5px; color:rgba(255,255,255,0.4); text-align:center; }
 
 /* Footer */
-footer{ background:#0a0a0a; border-top:1px solid rgba(255,255,255,0.08); }
+footer{ background:var(--bg-soft); border-top:1px solid rgba(255,255,255,0.08); }
 .footer-main{ padding:56px 0 40px; }
 .footer-grid{
   display:grid; grid-template-columns:1fr; gap:40px;
